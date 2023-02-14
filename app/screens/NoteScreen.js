@@ -72,9 +72,13 @@ const NoteScreen = ({ user, navigation }) => {
     }
 
     const handleOnClear = async () => {
-        setSearchQuery('');
-        setResultNotFound(false);
-        await findNotes();
+        try {
+            setSearchQuery('');
+            setResultNotFound(false);
+            await findNotes();
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
